@@ -7,9 +7,9 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,6 +21,10 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11'
+
+    - name: Display Commit Message
+      run: |
+        echo "Commit has been pushed. Running Maven build process..."
 
     - name: Build with Maven
       run: mvn clean install
