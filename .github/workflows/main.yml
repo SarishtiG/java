@@ -51,6 +51,6 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Compile
-      run: mvn compile 
+      run: mvn compile   
 
       
