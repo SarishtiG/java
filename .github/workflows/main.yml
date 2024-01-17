@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build:
+  clean:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,14 +22,35 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Display Commit Message
-      run: |
-        echo "Commit has been pushed. Running Maven build process..."
-
     - name: Clean
       run: mvn clean 
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
     - name: Validate
       run: mvn validate 
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
     - name: Compile
       run: mvn compile 
+
       
