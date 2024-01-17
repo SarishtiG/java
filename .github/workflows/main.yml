@@ -26,5 +26,10 @@ jobs:
       run: |
         echo "Commit has been pushed. Running Maven build process..."
 
-    - name: Build with Maven
-      run: mvn clean install
+    - name: Clean
+      run: mvn clean 
+    - name: Validate
+      run: mvn validate 
+    - name: Compile
+      run: mvn compile 
+      
