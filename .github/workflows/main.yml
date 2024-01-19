@@ -53,4 +53,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Push Docker image
-      run: docker push yourusername/yourappname:${{ github.sha }}
+      uses: docker/build-push-action@v5
+      with:
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
