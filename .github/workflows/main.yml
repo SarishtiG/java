@@ -35,7 +35,7 @@ jobs:
       run: mvn test-compile
       
     - name: Package
-      run: mvn pacckage
+      run: mvn package
 
     - name: Verify
       run: mvn verify
